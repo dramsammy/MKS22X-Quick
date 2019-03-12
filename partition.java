@@ -32,4 +32,10 @@ public class partition{
     }
     return pivot;
   }
+  public static void main(String[] args) {
+    int[] array = {12,4,5,62,1,5,7,8,9,5};
+    System.out.println(Arrays.toString(array));
+    System.out.println(partition(array,0,9));
+    System.out.println(Arrays.toString(array));
+  }
 }
