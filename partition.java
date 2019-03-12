@@ -14,9 +14,13 @@ public class partition{
     start++;
     while (start <= end){
       if (data[start] > temp1){
-        temp = data[pivot];
-        data[pivot] = data[start];
-        data[start] = temp;
+        temp = data[start];
+        data[start] = data[end];
+        data[end] = temp;
+        end--;
+      }
+      if (data[start] < val){
+        temp = data[]
       }
     }
   }
