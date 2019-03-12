@@ -12,6 +12,12 @@ public class partition{
     temp1 = data[start];
     pivot = start;
     start++;
-
+    while (start <= end){
+      if (data[start] > temp1){
+        temp = data[pivot];
+        data[pivot] = data[start];
+        data[start] = temp;
+      }
+    }
   }
 }
