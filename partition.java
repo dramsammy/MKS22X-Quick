@@ -4,10 +4,14 @@ public class partition{
     if (data.length == 1){
       return 0;
     }
-    int random = 1 * Math.random() * (end - start);
-    int middle = data[random];
-    data[random] = data[0];
-    data[0] = middle;
+    int pivot = 1 * Math.random() * (end - start + 1);
+    int temp = data[pivot + start];
+    int temp1 = data[start];
+    data[start] = temp;
+    data[pivot] = temp1;
+    temp1 = data[start];
+    pivot = start;
+    start++;
 
   }
 }
