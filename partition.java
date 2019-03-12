@@ -19,12 +19,15 @@ public class partition{
         data[end] = temp;
         end--;
       }
-      if (data[start] < temp1){
+      else if (data[start] < temp1){
         temp = data[pivot];
         data[pivot] = data[start];
         data[start] = temp;
         start++;
         pivot++;
+      }
+      else{
+        start++;
       }
     }
   }
