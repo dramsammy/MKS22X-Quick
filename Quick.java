@@ -52,4 +52,12 @@ public class Quick{
     }
     return data[first];
   }
+  public static void quicksort(int[] ary, int lo, int hi){
+    if (lo >= hi){
+      return;
+    }
+    int pivot = partition(ary, lo, hi);
+    quicksort(ary, pivot + 1, hi);
+    quicksort(ary, lo, pivot - 1);
+  }
 }
