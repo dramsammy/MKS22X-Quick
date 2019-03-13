@@ -34,10 +34,17 @@ public class Quick{
     return pivot;
   }
   public static void main(String[] args) {
-    int[] array = {12,4,5,62,1,5,7,8,9,5};
-    System.out.println(Arrays.toString(array));
-    System.out.println(partition(array,0,9));
-    System.out.println(Arrays.toString(array));
+    // int[] array = {12,4,5,62,1,5,7,8,9,5};
+    // int[] array1 = {12,4,5,62,1,5,7,8,9,5};
+    // System.out.println(Arrays.toString(array));
+    // quicksort(array, 0, array.length - 1);
+    // System.out.println(Arrays.toString(array));
+    // //Arrays.sort(array1);
+    int[] randish = new int[Integer.parseInt(args[0])];
+    for(int i = 0 ; i < randish.length; i++){
+      randish[i] =(int)(Math.random()*10000);
+    }
+    quicksort(randish, 0, randish.length - 1);
   }
   public static int quickselect(int[] data, int k){
     int start = 0;
@@ -52,12 +59,30 @@ public class Quick{
     }
     return data[first];
   }
+  public static void insertionSort(int[] data){
+    int first;
+    int j;
+    for (int i = 1; i <data.length; i++){
+      first = data[i];
+      j = i;
+      while(j -1 >= 0 && first < data[j-1]){
+        data[j] = data[j-1];
+        j--;
+      }
+      data[j] = first;
+    }
+}
   public static void quicksort(int[] ary, int lo, int hi){
     if (lo >= hi){
       return;
     }
     int pivot = partition(ary, lo, hi);
-    quicksort(ary, pivot + 1, hi);
-    quicksort(ary, lo, pivot - 1);
+    int[] half = new int[pivot];
+    for (int i = 0; i < half.length; i--){
+      half[i] = ary[i];
+    }
+    //quicksort(ary, pivot + 1, hi);
+    //quicksort(ary, lo, pivot - 1);
+    insertionSort(ary);
   }
 }
