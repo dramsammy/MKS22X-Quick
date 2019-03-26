@@ -6,7 +6,7 @@ public class Quick{
     }
     int pivot = (int) (Math.random() * 10 % (end - start)) + start;
     //System.out.println("this is pivot:" + pivot);
-    int temp = data[pivot + start];
+    int temp = data[pivot];
     int temp1 = data[start];
     data[start] = temp;
     data[pivot] = temp1;
@@ -59,7 +59,7 @@ public class Quick{
     }
     return data[first];
   }
-  public static void insertionSort(int[] data){
+  public static void insertionSort(int[] data, int lo, int hi){
     int first;
     int j;
     for (int i = 1; i <data.length; i++){
@@ -77,12 +77,12 @@ public class Quick{
       return;
     }
     int pivot = partition(ary, lo, hi);
-    int[] half = new int[pivot];
-    for (int i = 0; i < half.length; i--){
-      half[i] = ary[i];
-    }
-    //quicksort(ary, pivot + 1, hi);
-    //quicksort(ary, lo, pivot - 1);
-    insertionSort(ary);
+    quicksort(ary, pivot + 1, hi);
+    quicksort(ary, lo, pivot - 1);
+
   }
+  public static void quicksort(int[] data){     // Calls quicksort helper method
+      quicksort(data,0,data.length-1);
+    }
+
 }
