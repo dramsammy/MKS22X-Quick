@@ -48,7 +48,7 @@ public class Quick{
   }
   public static int quickselect(int[] data, int k){
     int start = 0;
-    int first = partition(data, start, data.length-1);
+    int end = data.length-1;
     while(k != first){
       if (k > first){
         first = partition(data,first,data.length-1);
